@@ -1,0 +1,1 @@
+# Ebat nichego ne uspel, zaliu zavtra norm
