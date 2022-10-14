@@ -34,6 +34,12 @@ function App() {
                             placeholder=''
                             value={input1}
                             onChange={(event) => setInput1(event.target.value)}
+                            onKeyPress={(event) => {
+                                if (!/[0-9]/.test(event.key)) {
+                                    event.preventDefault();
+                                    alert('Введено не число! ');
+                                }
+                            }}
                         />
                     </div>
                     <button
@@ -56,13 +62,19 @@ function App() {
                             type="text"
                             placeholder=''
                             value={input2}
-                            onChange={(event) => setInput2(event.target.value)}/>
+                            onChange={(event) => setInput2(event.target.value)}
+                            onKeyPress={(event) => {
+                                if (!/[0-9]/.test(event.key)) {
+                                    event.preventDefault();
+                                    alert('Введено не число! ');
+                                }
+                            }}/>
                     </div>
                     <button onClick={() => {
                         setResult((prev) => Number(prev) + Number(input2))
                         ClearField2()
                     }}
-                        disabled={!input2}>Добавить
+                            disabled={!input2}>Добавить
                     </button>
                 </div>
                 <div className="card">
@@ -74,7 +86,13 @@ function App() {
                             type="text"
                             placeholder=''
                             value={input3}
-                            onChange={(event) => setInput3(event.target.value)}/>
+                            onChange={(event) => setInput3(event.target.value)}
+                            onKeyPress={(event) => {
+                                if (!/[0-9]/.test(event.key)) {
+                                    event.preventDefault();
+                                    alert('Введено не число! ');
+                                }
+                            }}/>
                     </div>
                     <button onClick={() => {
                         setResult((prev) => Number(prev) + Number(input3));
@@ -89,7 +107,6 @@ function App() {
                 <p>Счет: <span>{result}</span></p>
             </div>
         </div>
-
     )
 }
 
