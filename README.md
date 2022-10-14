@@ -1,1 +1,1 @@
-# Ebat nichego ne uspel, zaliu zavtra norm
+# Multiple counter React App
