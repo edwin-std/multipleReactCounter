@@ -1,7 +1,6 @@
 import React from 'react'
 import './styles/app.scss'
 
-
 function App() {
 
     const [input1, setInput1] = React.useState('');
@@ -10,12 +9,17 @@ function App() {
     const [result, setResult] = React.useState('');
 
     function ClearField1() {
-       setInput1('');
-    }function ClearField2() {
-       setInput2('');
-    }function ClearField3() {
-       setInput3('');
+        setInput1('');
     }
+
+    function ClearField2() {
+        setInput2('');
+    }
+
+    function ClearField3() {
+        setInput3('');
+    }
+
 
     return (
         <div className="page">
@@ -25,21 +29,22 @@ function App() {
                     <div className='form'>
                         <p>Введите число</p>
                         <input
-                            id ='in1'
+                            id='in1'
                             type="text"
                             placeholder=''
                             value={input1}
                             onChange={(event) => setInput1(event.target.value)}
-                            />
+                        />
                     </div>
                     <button
-                        type = 'button'
+                        type='button'
                         onClick={() => {
                             ClearField1();
                             setResult((prev) => Number(prev) + Number(input1))
-                            }}
+                        }}
                         placeholder={''}
-                    >Заблокировано
+                        disabled={!input1}
+                    >Добавить
                     </button>
                 </div>
                 <div className="card">
@@ -47,7 +52,7 @@ function App() {
                     <div className='form'>
                         <p>Введите число</p>
                         <input
-                            id = 'in2'
+                            id='in2'
                             type="text"
                             placeholder=''
                             value={input2}
@@ -56,14 +61,16 @@ function App() {
                     <button onClick={() => {
                         setResult((prev) => Number(prev) + Number(input2))
                         ClearField2()
-                    }}>Заблокировано</button>
+                    }}
+                        disabled={!input2}>Добавить
+                    </button>
                 </div>
                 <div className="card">
                     <h1>Card 3</h1>
                     <div className='form'>
                         <p>Введите число</p>
                         <input
-                            id = 'in3'
+                            id='in3'
                             type="text"
                             placeholder=''
                             value={input3}
@@ -72,7 +79,10 @@ function App() {
                     <button onClick={() => {
                         setResult((prev) => Number(prev) + Number(input3));
                         ClearField3()
-                    }}>Заблокировано</button>
+                    }}
+                            disabled={!input3}
+                    >Добавить
+                    </button>
                 </div>
             </div>
             <div className="card-counter">
